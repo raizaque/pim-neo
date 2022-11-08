@@ -1,0 +1,15 @@
+<ng-content></ng-content>
+<form [formGroup]="rubrique">
+  <div
+    formArrayName="groups"
+    *ngFor="let group of rubrique.get('groups').controls; let i = index"
+  >
+    <p-fieldset
+      legend="{{ group.value.label }}"
+      [toggleable]="false"
+      (onBeforeToggle)="test($event)"
+    >
+      <app-group [group]="group"></app-group>
+    </p-fieldset>
+  </div>
+</form>

@@ -1,0 +1,34 @@
+<ng-content> </ng-content>
+<form [formGroup]="form">
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="field col-12 md:col-4">
+        <span class="p-float-label">
+          <p-calendar
+            [maxDate]="form.value.dateTo"
+            [readonlyInput]="false"
+            inputId="min-max"
+            formControlName="dateFrom"
+          ></p-calendar>
+          <label for="calendar">Date From</label>
+        </span>
+      </div>
+      <div class="field col-12 md:col-4">
+        <span class="p-float-label">
+          <p-calendar
+            [minDate]="form.value.dateFrom"
+            [readonlyInput]="false"
+            inputId="min-max"
+            formControlName="dateTo"
+          ></p-calendar>
+          <label for="calendar">Date To</label>
+        </span>
+      </div>
+      <p-message
+        severity="{{ form.value.state == 1 ? 'success' : 'warn' }}"
+        text="{{ form.value.state == 1 ? 'Published' : 'Not published' }}"
+        styleClass="p-mr-2"
+      ></p-message>
+    </div>
+  </div>
+</form>

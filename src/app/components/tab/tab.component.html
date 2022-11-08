@@ -1,0 +1,12 @@
+<ng-content></ng-content>
+<form [formGroup]="tab">
+  <div formArrayName="rubriques">
+    <p-panel
+      *ngFor="let rubrique of tab.get('rubriques').controls; let i = index"
+      header="{{ rubrique.value.label }}"
+      [toggleable]="true"
+    >
+      <app-rubrique [rubrique]="rubrique"> </app-rubrique>
+    </p-panel>
+  </div>
+</form>

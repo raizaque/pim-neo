@@ -1,0 +1,69 @@
+<h2>Pim Form</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="card">
+    <h5>Programmatic</h5>
+    <div style="padding: .5em 0 1em 0">
+      <p-button
+        (click)="activeIndex = 0"
+        styleClass="p-button-text"
+        label="Activate 1rd"
+      ></p-button>
+      <p-button
+        (click)="activeIndex = 1"
+        styleClass="p-button-text"
+        label="Activate 2rd"
+        [style]="{ 'margin-left': '.5em' }"
+      ></p-button>
+      <p-button
+        (click)="activeIndex = 2"
+        styleClass="p-button-text"
+        label="Activate 3rd"
+        [style]="{ 'margin-left': '.5em' }"
+      ></p-button>
+    </div>
+
+    <div formArrayName="tabs">
+      <p-tabView [(activeIndex)]="activeIndex">
+        <p-tabPanel
+          *ngFor="let tab of myForm.get('tabs').controls; let i = index"
+          header="{{ tab.value.label }}"
+        >
+          <app-tab [tab]="tab"> </app-tab>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</form>
+
+<!--
+[Loop Tab {{ i + 1 }}] Label:{{ tab.value.label }}
+    <div formArrayName="tabs">
+    <div
+      style="margin-top:5px; margin-bottom:5px;"
+      *ngFor="let tab of myForm.get('tabs').controls; let i = index"
+    >
+      <app-tab [tab]="tab"
+        >[Loop Tab {{ i + 1 }}] Label:{{ tab.value.label }}
+      </app-tab>
+    </div>
+  </div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div formArrayName="tabs">
+    <div
+      style="margin-top:5px; margin-bottom:5px;"
+      *ngFor="let tab of myForm.get('tabs').controls; let i = index"
+    >
+      <app-tab [tab]="tab"
+        >[Loop Tab {{ i + 1 }}] Label:{{ tab.value.label }}
+      </app-tab>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="button" class="btn btn-basic">Cancel</button>
+</form>
+
+
+-->
+
+<pre>{{ myForm.value | json }}</pre>

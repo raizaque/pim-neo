@@ -1,0 +1,13 @@
+export enum ATTRIBUT_ENUM {
+  TAB,
+  RUBRIQUE,
+  GROUP,
+  ATTRIBUTE,
+  MVA,
+  LOV,
+  DATA,
+  TEXT,
+  TEXTAREA,
+  GTIN_DEFAULT,
+  CHANNEL,
+}

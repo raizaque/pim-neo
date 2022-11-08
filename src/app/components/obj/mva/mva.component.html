@@ -1,0 +1,35 @@
+<ng-content></ng-content>
+<form [formGroup]="form">
+  {{ form.value | json }}
+
+  <!--<div class="form-inline">
+    <div class="form-group">
+      <label style="margin-right:80px;" class="col-form-label" for="vaue"
+        >Attribute</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="value"
+        placeholder="Attribute"
+        name="value"
+        formControlName="value"
+        style="margin-right:5px;"
+        required
+      />
+      <label style="margin-right:80px;" class="col-form-label" for="id"
+        >Id</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="id"
+        placeholder="Id"
+        name="type"
+        formControlName="id"
+        style="margin-right:5px;"
+        required
+      />
+    </div>
+  </div>-->
+</form>
